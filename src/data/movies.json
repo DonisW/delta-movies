@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "title": "The Shawshank Redemption",
+        "poster": "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
+        "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption.",
+        "price": 9.99,
+        "category": "Drama"
+    },
+    {
+        "id": 2,
+        "title": "The Godfather",
+        "poster": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+        "description": "The aging patriarch of an organized crime dynasty transfers control to his reluctant son.",
+        "price": 12.5,
+        "category": "Crime"
+    },
+    {
+        "id": 3,
+        "title": "The Dark Knight",
+        "poster": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+        "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham.",
+        "price": 13.0,
+        "category": "Action"
+    },
+    {
+        "id": 4,
+        "title": "Fight Club",
+        "poster": "https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg",
+        "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club.",
+        "price": 11.0,
+        "category": "Drama"
+    },
+    {
+        "id": 5,
+        "title": "Forrest Gump",
+        "poster": "https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg",
+        "description": "The presidencies of Kennedy and Johnson, the Vietnam War, and other historical events unfold from the perspective of an Alabama",
+        "price": 10.0,
+        "category": "Drama"
+    },
+    {
+        "id": 6,
+        "title": "Inception",
+        "poster": "https://image.tmdb.org/t/p/w500/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg",
+        "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea.",
+        "price": 14.0,
+        "category": "Sci-Fi"
+    },
+    {
+        "id": 7,
+        "title": "The Matrix",
+        "poster": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+        "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+        "price": 13.5,
+        "category": "Sci-Fi"
+    },
+    {
+        "id": 8,
+        "title": "Interstellar",
+        "poster": "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+        "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+        "price": 15.0,
+        "category": "Sci-Fi"
+    },
+    {
+        "id": 9,
+        "title": "Gladiator",
+        "poster": "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg",
+        "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him",
+        "price": 12.0,
+        "category": "Action"
+    },
+    {
+        "id": 10,
+        "title": "The Lion King",
+        "poster": "https://image.tmdb.org/t/p/w500/2bXbqYdUdNVa8VIWXVfclP2ICtT.jpg",
+        "description": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
+        "price": 8.5,
+        "category": "Animation"
+    }
+]
