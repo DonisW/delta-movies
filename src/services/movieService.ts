@@ -1,7 +1,7 @@
 import movies from '../data/movies.json';
 import type { Movie } from '../types/Movie';
 
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 8;
 
 type Res = { movies: Movie[]; totalPages: number };
 
