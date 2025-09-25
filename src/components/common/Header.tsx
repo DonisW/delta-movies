@@ -5,13 +5,15 @@ import { Brightness4, Brightness7, ShoppingCart } from '@mui/icons-material';
 import { useThemeCtx } from '../../context/useThemeCtx';
 import { useState, useEffect } from 'react';
 import { useDebounce } from '../../hooks/useDebounce';
+import { useCartCtx } from '../../context/useCartCtx';
 
-type Props = { onSearch: (q: string) => void; cartSize: number };
+type Props = { onSearch: (q: string) => void };
 
-export default function Header({ onSearch, cartSize }: Props) {
+export default function Header({ onSearch }: Props) {
   const [query, setQuery] = useState('');
   const debounced = useDebounce(query, 300);
   const { toggle, isDark } = useThemeCtx();
+  const { open, totalQty } = useCartCtx();
 
   useEffect(() => onSearch(debounced), [debounced, onSearch]);
 
@@ -37,8 +39,8 @@ export default function Header({ onSearch, cartSize }: Props) {
         </IconButton>
 
         {/* Carrito */}
-        <IconButton color="inherit">
-          <Badge badgeContent={cartSize} color="secondary">
+        <IconButton color="inherit" onClick={open}>
+          <Badge badgeContent={totalQty} color="secondary">
             <ShoppingCart />
           </Badge>
         </IconButton>

@@ -3,15 +3,16 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CssBaseline } from '@mui/material';
 import Header from './components/common/Header';
 import CatalogPage from './pages/CatalogPage';
+import CartDrawer from './components/cart/cartDrawer';
 
 function App() {
   const [search, setSearch] = useState('');
-  const [cartSize, setCartSize] = useState(0); // luego vendrá del context
-
+  
   return (
     <BrowserRouter>
       <CssBaseline />
-      <Header onSearch={setSearch} cartSize={cartSize} />
+      <Header onSearch={setSearch} />
+      <CartDrawer />
       <Routes>
         <Route path="/" element={<CatalogPage search={search} />} />
       </Routes>
