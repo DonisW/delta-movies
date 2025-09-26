@@ -1,23 +1,33 @@
-# delta-movies
+# 🎬 Delta Movies – Prueba Técnica Frontend
 
-&gt; Tienda de películas en React + TypeScript + Vite + Material-UI  
-&gt; Evaluación técnica Delta Corp – Frontend Junior
+Aplicación web construida con **React + TypeScript** que simula una tienda de compra de películas. Incluye catálogo, búsqueda, paginación, carrito de compras, favoritos y modo oscuro.
 
 ## 🚀 Demo en vivo
 [![Vercel](https://img.shields.io/badge/demo-vercel-black?style=flat&logo=vercel)](https://delta-movies-nsnfbkqqa-donisws-projects.vercel.app)
 
 ## 📦 Instalación y uso
+### Requisitos
+- Node.js v20.11.0
+
+### Pasos
+
 ```bash
-# 1. Usar la versión de Node indicada
+# Clonar el repositorio
+git clone https://github.com/DonisW/delta-movies.git
+
+# Entrar al directorio
+cd delta-movies
+
+# Usar la versión de Node indicada
 nvm use                 # .nvmrc -&gt; 20.11.0
 
-# 2. Instalar dependencias
+# Instalar dependencias
 npm install
 
-# 3. Levantar entorno de desarrollo
+# Levantar entorno de desarrollo
 npm run dev             # http://localhost:5173
 
-# 4. Build de producción
+# Build de producción
 npm run build
 
 ## 🐳 Docker
@@ -52,3 +62,15 @@ docker compose --profile prod logs -f
 # Detener y eliminar contenedores
 docker compose --profile prod down
 ```
+## 🧱 Arquitectura y decisiones técnicas
+| Área | Decisión | Motivo |
+|---|---|---|
+| **Lenguaje** | TypeScript | Tipado estático, autocompletado y menor cantidad de errores en tiempo de ejecución. |
+| **Estado global** | React Context API | Suficiente para el alcance de la prueba; evita la complejidad de Redux. |
+| **UI** | Material-UI (MUI) | Componentes accesibles y con temas incluidos (modo claro/oscuro). |
+| **Build** | Vite | Arranque rápido y recarga |
+| **Estilos** | MUI `sx` + `styled` | No se añadió Tailwind para mantener una sola fuente de verdad de estilos. |
+| **Paginación** | Client-side | Catálogo mockeado pequeño; se evita sobrecosto de backend. |
+| **Persistencia** | `localStorage` | Carrito y favoritos sobreviven a recargas sin backend. |
+| **Docker** | despliegue inmediato en cualquier |
+| **Estructura de carpetas** | Por dominio (`/context`, `/components`, `/hooks`, `/pages`). |
