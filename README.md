@@ -1,4 +1,4 @@
-# 🎬 Delta Movies – Prueba Técnica Frontend
+  # 🎬 Delta Movies – Prueba Técnica Frontend
 
 Aplicación web construida con **React + TypeScript** que simula una tienda de compra de películas. Incluye catálogo, búsqueda, paginación, carrito de compras, favoritos y modo oscuro.
 
@@ -72,6 +72,6 @@ docker compose --profile prod down
 | **Estilos** | MUI `sx` + `styled` | No se añadió Tailwind para mantener una sola fuente de verdad de estilos. |
 | **Paginación** | Client-side | Catálogo mockeado pequeño; se evita sobrecosto de backend. |
 | **Persistencia** | `localStorage` | Carrito y favoritos sobreviven a recargas sin backend. |
-| **Docker** | contenedores | despliegue inmediato en cualquier |
+| **Docker** | contenedores | despliegue inmediato |
 | **Despliegue** | Vercel | Integración nativa con GitHub, despliegue continuo y alta disponibilidad. |
 | **Estructura de carpetas** | Por dominio (`/context`, `/components`, `/hooks`, `/pages`). | Fácil de escalar |
