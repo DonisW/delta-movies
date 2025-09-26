@@ -5,7 +5,7 @@ import { Brightness4, Brightness7, ShoppingCart } from '@mui/icons-material';
 import { useThemeCtx } from '../../context/useThemeCtx';
 import { useState, useEffect } from 'react';
 import { useDebounce } from '../../hooks/useDebounce';
-import { useCartCtx } from '../../context/useCartCtx';
+import { useCardCtx } from '../../context/useCardCtx';
 
 type Props = { onSearch: (q: string) => void };
 
@@ -13,7 +13,7 @@ export default function Header({ onSearch }: Props) {
   const [query, setQuery] = useState('');
   const debounced = useDebounce(query, 300);
   const { toggle, isDark } = useThemeCtx();
-  const { open, totalQty } = useCartCtx();
+  const { open, totalQty } = useCardCtx();
 
   useEffect(() => onSearch(debounced), [debounced, onSearch]);
 

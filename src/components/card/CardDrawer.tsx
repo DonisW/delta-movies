@@ -2,13 +2,13 @@ import {
   Drawer, Box, Typography, IconButton, List, ListItem, ListItemText, Divider, Button
 } from '@mui/material';
 import { Close, Add, Remove, Delete } from '@mui/icons-material';
-import { useCartCtx } from '../../context/useCartCtx';
+import { useCardCtx } from '../../context/useCardCtx';
 
-export default function CartDrawer() {
-    const { state, close, remove, add, clear, clearOneMovie, totalPrice } = useCartCtx();
+export default function CardDrawer() {
+  const { state, close, remove, add, clear, clearOneMovie, totalPrice } = useCardCtx();
 
-    return (
-            <Drawer anchor="right" open={state.isOpen} onClose={close}>
+  return (
+    <Drawer anchor="right" open={state.isOpen} onClose={close}>
       <Box sx={{ width: 350, p: 2, display: 'flex', flexDirection: 'column', height: 1 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>Carrito</Typography>
@@ -29,6 +29,7 @@ export default function CartDrawer() {
                   <IconButton size="small" onClick={() => clearOneMovie(item.id)}><Delete color="error" /></IconButton>
                 </Box>
               }
+              sx={{ pr: 18 }} // Aumenta el padding derecho para evitar que el texto choque con los botones
             >
               <ListItemText
                 primary={item.title}

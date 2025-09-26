@@ -1,5 +1,5 @@
 import type { Movie } from "./Movie";
 
-export interface CartItem extends Movie {
+export interface CardItem extends Movie {
   quantity: number;
 }

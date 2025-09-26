@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { CartCtx } from './CartContext';
+import { CardCtx } from './CardContext';
 
-export const useCartCtx = () => {
-    const ctx = useContext(CartCtx);
+export const useCardCtx = () => {
+    const ctx = useContext(CardCtx);
     if (!ctx) throw new Error('useCart fuera de CartProvider');
     return ctx;
 };

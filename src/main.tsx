@@ -3,14 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { CustomThemeProvider } from './context/ThemeContext.tsx'
-import { CartProvider } from './context/CartContext.tsx'
+import { CardProvider } from './context/CardContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <CustomThemeProvider>
-  <CartProvider>
+  <CardProvider>
   <StrictMode>
     <App />
   </StrictMode>
-  </CartProvider>
+  </CardProvider>
   </CustomThemeProvider>
 )

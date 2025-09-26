@@ -1,14 +1,14 @@
 import { Card, CardMedia, CardContent, Typography, Button, CardActions } from '@mui/material';
 import { AddShoppingCart } from '@mui/icons-material';
 import type { Movie } from '../../types/Movie';
-import { useCartCtx } from '../../context/useCartCtx';
+import { useCardCtx } from '../../context/useCardCtx';
 
 type Props = {
   movie: Movie;
 };
 
 export default function MovieCard({ movie }: Props) {
-  const { add } = useCartCtx();
+  const { add } = useCardCtx();
 
   return (
     <Card sx={{ maxWidth: 280, mx: 'auto', height: '100%' }}>
@@ -27,7 +27,7 @@ export default function MovieCard({ movie }: Props) {
       <CardActions>
         <Button fullWidth variant="contained" startIcon={<AddShoppingCart />}
           onClick={() => add({ ...movie, quantity: 1 })}>
-          Add to cart
+          Agregar al carrito
         </Button>
       </CardActions>
     </Card>

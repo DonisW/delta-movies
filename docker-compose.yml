@@ -1,0 +1,27 @@
+services:
+  web:
+    # Perfil de producción: imagen construida desde Dockerfile
+    profiles: ["prod"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: delta-movies:prod
+    ports:
+      - "8080:80"
+
+  dev:
+    # Perfil de desarrollo: Vite con hot reload
+    profiles: ["dev"]
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0"
+    environment:
+      # En algunos entornos Docker, el file-watching requiere polling
+      CHOKIDAR_USEPOLLING: "true"
+      WATCHPACK_POLLING: "true"
+    volumes:
+      - .:/app
+      # Evita que node_modules del host pise las dependencias del contenedor
+      - /app/node_modules
+    ports:
+      - "5173:5173"

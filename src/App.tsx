@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CssBaseline } from '@mui/material';
 import Header from './components/common/Header';
 import CatalogPage from './pages/CatalogPage';
-import CartDrawer from './components/cart/cartDrawer';
+import CardDrawer from './components/card/CardDrawer';
 
 function App() {
   const [search, setSearch] = useState('');
@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <CssBaseline />
       <Header onSearch={setSearch} />
-      <CartDrawer />
+      <CardDrawer />
       <Routes>
         <Route path="/" element={<CatalogPage search={search} />} />
       </Routes>

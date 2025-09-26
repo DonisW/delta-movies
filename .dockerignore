@@ -1,0 +1,29 @@
+# Dependencias e instalaciones locales
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store
+
+# Build output
+/dist
+
+# Entornos y caches
+.env
+.env.*
+.vercel
+
+# VCS
+.git
+.gitignore
+
+# IDE/Editor
+.vscode
+.idea
+*.swp
+*.swo
+.DS_Store
+
+# Docker
+Dockerfile
+docker-compose.yml

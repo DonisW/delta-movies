@@ -1,21 +1,21 @@
 import { createContext, useReducer, useEffect } from 'react';
 import type { ReactNode } from 'react';
-import type { CartItem } from '../types/CartItem';
+import type { CardItem } from '../types/CardItem';
 
-type CartState = { items: CartItem[]; isOpen: boolean };
-type CartAction =
+type CardState = { items: CardItem[]; isOpen: boolean };
+type CardAction =
   | { type: 'OPEN' }
   | { type: 'CLOSE' }
-  | { type: 'ADD'; movie: CartItem }
-  | { type: 'REMOVE'; id: number }
-  | { type: 'CLEARONEMOVIE'; id: number }
-  | { type: 'CLEAR' };
+  | { type: 'ADD'; movie: CardItem } // Aggregar o aumentar cantidad
+  | { type: 'REMOVE'; id: number } // Disminuir cantidad o eliminar
+  | { type: 'CLEARONEMOVIE'; id: number } // Eliminar completamente una pelicula del carrito
+  | { type: 'CLEAR' }; // Vaciar carrito
 
-const CartCtx = createContext<{
-  state: CartState;
+const CardCtx = createContext<{
+  state: CardState;
   open: () => void;
   close: () => void;
-  add: (m: CartItem) => void;
+  add: (m: CardItem) => void;
   remove: (id: number) => void;
   clearOneMovie: (id: number) => void;
   clear: () => void;
@@ -23,7 +23,7 @@ const CartCtx = createContext<{
   totalPrice: number;
 } | null>(null);
 
-const cartReducer = (movies: CartState, action: CartAction): CartState => {
+const cardReducer = (movies: CardState, action: CardAction): CardState => {
   switch (action.type) {
     case 'OPEN':
       return { ...movies, isOpen: true };
@@ -55,7 +55,6 @@ const cartReducer = (movies: CartState, action: CartAction): CartState => {
       };
     }
     case 'CLEARONEMOVIE': { 
-        console.log('clear one movie',{ action: action, movies: movies})
         const existe = movies.items.filter((x) => x.id !== action.id)
         return { ...movies, items: existe };
       };
@@ -66,12 +65,12 @@ const cartReducer = (movies: CartState, action: CartAction): CartState => {
   }
 };
 
-const initial: CartState = { items: [], isOpen: false };
+const initial: CardState = { items: [], isOpen: false };
 
-const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [state, dispatch] = useReducer(cartReducer, initial, () => {
+const CardProvider = ({ children }: { children: ReactNode }) => {
+  const [state, dispatch] = useReducer(cardReducer, initial, () => {
     try {
-      const raw = localStorage.getItem('cart');
+      const raw = localStorage.getItem('card');
       return raw ? JSON.parse(raw) : initial;
     } catch {
       return initial;
@@ -79,7 +78,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
   });
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(state));
+    localStorage.setItem('card', JSON.stringify(state));
   }, [state]);
 
   const totalQty = state.items.reduce((s, i) => s + i.quantity, 0);
@@ -89,7 +88,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     state,
     open: () => dispatch({ type: 'OPEN' }),
     close: () => dispatch({ type: 'CLOSE' }),
-    add: (movie: CartItem) => dispatch({ type: 'ADD', movie }),
+    add: (movie: CardItem) => dispatch({ type: 'ADD', movie }),
     remove: (id: number) => dispatch({ type: 'REMOVE', id }),
     clear: () => dispatch({ type: 'CLEAR' }),
     clearOneMovie: (id: number) => dispatch({ type: 'CLEARONEMOVIE', id }),
@@ -97,7 +96,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     totalPrice,
   };
 
-  return <CartCtx.Provider value={api}>{children}</CartCtx.Provider>;
+  return <CardCtx.Provider value={api}>{children}</CardCtx.Provider>;
 };
 
-export { CartCtx, CartProvider };
+export { CardCtx, CardProvider };

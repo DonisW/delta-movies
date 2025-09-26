@@ -15,7 +15,7 @@ export default function CatalogPage({ search = '' }: Props) {
   return (
     <Container maxWidth="xl" sx={{ py: 4, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <Typography variant="h4" component="h1" gutterBottom align="center" sx={{ mb: 4 }}>
-        Movies Catalog
+        Catalogo de Películas
       </Typography>
 
       {loading && <CircularProgress sx={{ display: 'block', mx: 'auto' }} />}
