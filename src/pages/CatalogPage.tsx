@@ -3,14 +3,22 @@ import { Container, Typography, CircularProgress, Alert, Pagination } from '@mui
 import Grid from '@mui/material/Grid';
 import MovieCard from '../components/catalog/MovieCard';
 import { useMovies } from '../hooks/useMovies';
+import { useNotify } from '../context/useNotify';
 
 type Props = { search?: string };
 
 export default function CatalogPage({ search = '' }: Props) {
   const [page, setPage] = useState(1);
   const { data: movies, totalPages, loading, error } = useMovies(page, search);
+  const { notify } = useNotify();
 
   useEffect(() => setPage(1), [search]);
+
+  useEffect(() => {
+    if (!loading && !error && search.trim() && movies.length === 0) {
+      notify({ message: 'No se encontraron resultados para tu búsqueda', severity: 'info' });
+    }
+  }, [loading, error, search, movies, notify]);
 
   return (
     <Container maxWidth="xl" sx={{ py: 4, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -31,6 +39,13 @@ export default function CatalogPage({ search = '' }: Props) {
               color="primary"
               sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}
             />
+          )}
+
+          {/* Sin resultados */}
+          {!movies.length && search.trim() && (
+            <Alert severity="info" sx={{ mb: 2 }}>
+              No se encontraron resultados para "{search}"
+            </Alert>
           )}
 
           <Grid container spacing={3} justifyContent="center" alignItems="center" sx={{ flex: 1 }}>
