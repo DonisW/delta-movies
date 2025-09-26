@@ -68,9 +68,10 @@ docker compose --profile prod down
 | **Lenguaje** | TypeScript | Tipado estático, autocompletado y menor cantidad de errores en tiempo de ejecución. |
 | **Estado global** | React Context API | Suficiente para el alcance de la prueba; evita la complejidad de Redux. |
 | **UI** | Material-UI (MUI) | Componentes accesibles y con temas incluidos (modo claro/oscuro). |
-| **Build** | Vite | Arranque rápido y recarga |
+| **Build Tool** | Vite	Desarrollo ágil con Hot Module Replacement (HMR) y builds optimizados. | Arranque rápido y recarga |
 | **Estilos** | MUI `sx` + `styled` | No se añadió Tailwind para mantener una sola fuente de verdad de estilos. |
 | **Paginación** | Client-side | Catálogo mockeado pequeño; se evita sobrecosto de backend. |
 | **Persistencia** | `localStorage` | Carrito y favoritos sobreviven a recargas sin backend. |
-| **Docker** | despliegue inmediato en cualquier |
-| **Estructura de carpetas** | Por dominio (`/context`, `/components`, `/hooks`, `/pages`). |
+| **Docker** | contenedores | despliegue inmediato en cualquier |
+| **Despliegue** | Vercel | Integración nativa con GitHub, despliegue continuo y alta disponibilidad. |
+| **Estructura de carpetas** | Por dominio (`/context`, `/components`, `/hooks`, `/pages`). | Fácil de escalar |
