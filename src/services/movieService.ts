@@ -21,3 +21,13 @@ export async function getMovies(page = 1, search = ''): Promise<Res> {
     setTimeout(() => resolve({ movies: paged, totalPages }), 400);
   });
 }
+
+export async function getAllMovies(search = ''): Promise<Movie[]> {
+  const filtered = movies.filter((m) =>
+    m.title.toLowerCase().includes(search.toLowerCase()) ||
+    m.category.toLowerCase().includes(search.toLowerCase())
+  );
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(filtered), 300);
+  });
+}

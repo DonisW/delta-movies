@@ -7,14 +7,15 @@ import CardDrawer from './components/card/CardDrawer';
 
 function App() {
   const [search, setSearch] = useState('');
+  const [favoritesOnly, setFavoritesOnly] = useState(false);
   
   return (
     <BrowserRouter>
       <CssBaseline />
-      <Header onSearch={setSearch} />
+      <Header onSearch={setSearch} favoritesOnly={favoritesOnly} onToggleFavorites={() => setFavoritesOnly((v) => !v)} />
       <CardDrawer />
       <Routes>
-        <Route path="/" element={<CatalogPage search={search} />} />
+        <Route path="/" element={<CatalogPage search={search} favoritesOnly={favoritesOnly} />} />
       </Routes>
     </BrowserRouter>
   );
