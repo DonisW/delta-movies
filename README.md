@@ -3,7 +3,7 @@
 Aplicación web construida con **React + TypeScript** que simula una tienda de compra de películas. Incluye catálogo, búsqueda, paginación, carrito de compras, favoritos y modo oscuro.
 
 ## 🚀 Demo en vivo
-[![Vercel](https://delta-movies.vercel.app/)
+[![Vercel](https://delta-movies.vercel.app/)]
 
 ## 📦 Instalación y uso
 ### Requisitos
